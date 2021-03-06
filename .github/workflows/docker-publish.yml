@@ -14,7 +14,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: gw2treasures/icons
+  IMAGE_NAME: icons
 
 jobs:
   # Run tests.
