@@ -1,0 +1,22 @@
+RewriteEngine On
+
+RewriteRule ^([^/]+)/([0-9]+)\.png cache/64/$1-$2.png
+RewriteRule ^([^/]+)/([0-9]+)-64px\.png cache/64/$1-$2.png
+RewriteRule ^([^/]+)/([0-9]+)-32px\.png cache/32/$1-$2.png
+RewriteRule ^([^/]+)/([0-9]+)-16px\.png cache/16/$1-$2.png
+
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{QUERY_STRING} (^|&)force(=|&|$)
+RewriteRule cache/64/([^-]+)-([0-9]+)\.png icon.php?icon_file_signature=$1&icon_file_id=$2 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{QUERY_STRING} (^|&)force(=|&|$)
+RewriteRule cache/32/([^-]+)-([0-9]+)\.png icon.php?icon_file_signature=$1&icon_file_id=$2&small [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{QUERY_STRING} (^|&)force(=|&|$)
+RewriteRule cache/16/([^-]+)-([0-9]+)\.png icon.php?icon_file_signature=$1&icon_file_id=$2&supersmall [QSA]
+
+<FilesMatch "\.png$">
+  Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>

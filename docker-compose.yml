@@ -1,0 +1,10 @@
+version: '3'
+
+services: 
+  icons:
+    image: gw2treasures/icons
+    build: .
+    ports:
+      - 8080:80
+    volumes: 
+      - ./.docker/cache:/var/www/html/cache
