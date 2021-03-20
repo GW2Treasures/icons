@@ -19,4 +19,5 @@ RewriteRule cache/16/([^-]+)-([0-9]+)\.png icon.php?icon_file_signature=$1&icon_
 
 <FilesMatch "\.png$">
   Header set Cache-Control "max-age=31536000, public, immutable"
+  Header set Access-Control-Allow-Origin "*"
 </FilesMatch>

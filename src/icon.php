@@ -177,6 +177,7 @@
     header('Last-Modified: '.gmdate('D, d M Y H:i:s', $mtime).' GMT', true, 200);
     header('Expires: '.gmdate('D, d M Y H:i:s',  $mtime + $secondsToCache).' GMT', true, 200);
     header('Content-Type: image/png');
+    header('Access-Control-Allow-Origin: *');
   }
 
   $icon_file_id = $_GET['icon_file_id'];
