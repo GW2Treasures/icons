@@ -1,4 +1,4 @@
-FROM php:8-apache
+FROM php:8.5.11-apache
 
 # enable mod rewrite
 RUN a2enmod rewrite headers
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # download pngout (http://www.jonof.id.au/kenutils.html)
-RUN wget http://static.jonof.id.au/dl/kenutils/pngout-20200115-linux.tar.gz \
+RUN wget https://www.jonof.id.au/files/kenutils/pngout-20200115-linux.tar.gz \
   && tar -xf pngout-20200115-linux.tar.gz \
   && rm pngout-20200115-linux.tar.gz \
   && cp pngout-20200115-linux/amd64/pngout /bin/pngout \
